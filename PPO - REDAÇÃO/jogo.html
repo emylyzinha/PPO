@@ -1,0 +1,177 @@
+<html lang="pt-br">
+  <head>
+    <title>PPO - Redação</title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="main.css">
+    
+    <!-- Font Awesome -->
+    <script defer async src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    
+    <!--Java Script-->
+    <script src="app.js"></script>
+
+  </head>
+  <body class="bg-light" onload="carregaIdeias()">
+      
+    <header><!-- inicio Cabecalho -->
+      <nav class="navbar navbar-expand-sm navbar-dark bg-danger">
+        <div class="container">
+          
+          <a href="index.html" class="navbar-brand p-0">
+            <img src="img/redacioneLogo.png" width="100">
+          </a>
+
+          <span class="navbar text-light bg-danger display-4 col-md-4 offset-md-4 p-0" id="cronometro"><b>01:15</b></span>
+
+          <button class="navbar-toggler" data-toggle="collapse" data-target="#nav-principal">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="nav-principal">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a href="index.html" class="nav-link">Home</a>
+              </li>
+              <li class="nav-item">
+                <a href="comoJogar.html" class="nav-link">Como jogar</a>
+              </li>
+              <li class="nav-item">
+                <a href="artigos.html" class="nav-link">Artigos</a>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </nav>
+    </header><!--/fim Cabecalho -->
+
+    <!--TEMA E TEXTOS APOIO-->
+    <div class="card mt-4 mb-4 col-lg-8 offset-lg-2 col-md-8 offset-md-2 col-sm-10 offset-sm-1 p-0">
+      <h5 class="card-header bg-danger text-light">Leia atentamente</h5>
+      <div class="card-body">
+        <h5 class="card-title text-danger" id="temaRedacao">Tema: O estigma associado às doenças mentais na sociedade brasileira</h5>
+        <p class="card-text text-dark" id="textoRedacao">
+            Some quick example text to build on the card title and make up the bulk of the card's content.
+            Some quick example text to build on the card title and make up the bulk of the card's content.
+            Some quick example text to build on the card title and make up the bulk of the card's content.
+            Some quick example text to build on the card title and make up the bulk of the card's content.
+            Some quick example text to build on the card title and make up the bulk of the card's content.
+            Some quick example text to build on the card title and make up the bulk of the card's content.
+            Some quick example text to build on the card title and make up the bulk of the card's content.
+            Some quick example text to build on the card title and make up the bulk of the card's content.
+            Some quick example text to build on the card title and make up the bulk of the card's content.
+            Some quick example text to build on the card title and make up the bulk of the card's content.
+            Some quick example text to build on the card title and make up the bulk of the card's content.
+            Some quick example text to build on the card title and make up the bulk of the card's content.
+            Some quick example text to build on the card title and make up the bulk of the card's content.
+            Some quick example text to build on the card title and make up the bulk of the card's content.
+            Some quick example text to build on the card title and make up the bulk of the card's content.
+            Some quick example text to build on the card title and make up the bulk of the card's content.
+            Some quick example text to build on the card title and make up the bulk of the card's content.
+          </p>
+        <a class="btn btn-danger mt-4 col-4 mb-4" id="proximoTema" onclick="irIdeias()">Próximo</a>
+      </div>
+      <!--FIM TEMA E TEXTOS APOIO-->
+
+      <!--IDEIAS-->
+      <div class="card form-group mt-4 mb-0">
+        <label for="#" class="text-light card-header bg-danger"><h5>Adicione ideias para a redação</h5></label>
+
+        <div class="row m-4">
+          <div class="col">
+            <table class="table" >
+              <thead>
+                <tr>
+                  <th>Ideias</th>
+                </tr>
+              </thead>
+  
+              <tbody id="listaIdeias">
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="row col-lg-8 offset-lg-2">
+          <input class="form-control form-control-lg mt-4 col-8 offset-1 input-group-text" type="text" id="digiteIdeia" placeholder="Digite uma ideia">
+          <a class="btn btn-danger btn-lg align-self-end ml-2 disabled" id="addIdeia"  onclick="addIdeia()">
+              <i class="fas fa-plus"></i>
+          </a>
+        </div>
+        <a class="btn btn-danger mt-4 col-3 mb-4 align-self-center disabled" id="proximoIdeia" onclick="irRascunho()">Próximo</a>
+      </div>
+      <!--FIM IDEIAS-->
+
+      <!--RASCUNHO-->
+      <div class="card form-group">
+        <h5 class="text-light card-header bg-danger">Faça um rascunho com as ideias a cima</h5>
+        <textarea class="form-control mt-4 col-10 offset-1" disabled="true" id="escreverRascunho" rows="30" placeholder="Faça um rascunho da sua redação aqui!"></textarea>
+        <a class="btn btn-danger mt-4 col-3 align-self-center mb-4 disabled" id="proximoRascunho" onclick="irRedacao()">Próximo</a>
+      </div>
+      <!--FIM RASCUNHO-->
+
+      <!-- MODAL PROXIMO RASCUNHO - HABILITAR TEXTAREA REDAÇÃO -->
+      <div class="modal fade" id="modalHabilitaRedacao" tabindex="-1" aria-labelledby="sucessoGravacaoLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div id="modalTituloDivHabilitaRedacao">
+              <h5 class="modal-title" id="modalTituloHabilitaRedacao"></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" id="modalConteudoHabilitaRedacao"></div>
+            <div class="modal-footer">
+              <button type="button"  id="modalBtnHabilitaRedacao" data-dismiss="modal"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--REDAÇÃO FINAL-->
+      <div class="card form-group mb-0">
+        <h5 class="text-light card-header bg-danger">Escreva sua redação final!</h5>
+        <textarea class="form-control mt-4 col-10 offset-1" disabled="true" id="redacaoFinal" rows="30" disabled placeholder="Faça sua redação final aqui!"></textarea>
+        <a class="btn btn-danger mt-4 col-4 mb-4 align-self-center btn-lg disabled" id="finalizaRedacao" onclick="finalizarRedacao()">Finalizar redação!</a>
+      </div>
+      <!--FIM REDAÇÃO FINAL-->
+
+        <!-- MODAL FINALIZAR REDAÇÃO - DEVOLUTIVA -->
+      <div class="modal fade" id="modalDevolutiva" tabindex="-1" aria-labelledby="sucessoGravacaoLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div id="modalTituloDiv">
+              <h5 class="modal-title" id="modalTitulo"></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" id="modalConteudo">
+            </div>
+            <div class="modal-footer">
+              
+              <a  href="suaRedacao.html" class="btn btn-success text-light m-2" type="button" id="modalBtnCopy" data-dismiss="">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-arrow-bar-up" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M8 10a.5.5 0 0 0 .5-.5V3.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 3.707V9.5a.5.5 0 0 0 .5.5zm-7 2.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5z"/>
+                </svg>
+              </a>
+              <a href="index.html" type="button"  id="modalBtn" data-dismiss=""></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> 
+
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+      <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>

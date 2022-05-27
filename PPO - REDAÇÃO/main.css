@@ -1,0 +1,20 @@
+:root {
+    --colorPrincipal: #242363;
+    --colorPrincipalHover: #242363c7;
+}
+
+.bg-danger {
+    background-color: var(--colorPrincipal) !important;
+}
+.text-danger {
+    color: var(--colorPrincipal) !important;
+}
+.btn-danger {
+    background-color: var(--colorPrincipal) !important;
+    border: 1px solid var(--colorPrincipal) !important;
+}
+
+.btn-danger :hover {
+    background-color: var(--colorPrincipal) !important;
+    border: 1px solid var(--colorPrincipal) !important;
+}
